@@ -1,41 +1,19 @@
 /// <reference types="jquery" />
 /// <reference types="sizzle"/>
+/* eslint-env jquery */
 
-const urlEuro = "https://api.exchangeratesapi.io/latest";
-let moneda ="";
-$('#boton-eur').click(() => {
-   $('ul').remove();
-   fetch(urlEuro)
-.then(respuesta => respuesta.json())
-.then(respuestajson =>
-   {  
-   
-      Object.keys(respuestajson.rates).forEach(monedas=>{
-       $('#valores').append(`<ul>${monedas} : ${respuestajson.rates[monedas]}</ul>`)})
-      
-     
-      $('#moneda').text(`Moneda: ${respuestajson.base}`)
-      $('#dia').text(`Dia: ${respuestajson.date}`)
-     }) 
+const URL = 'https://api.exchangeratesapi.io/latest?base=';
 
-.catch(error => console.error("fallo al pedir la informacion",error));
-});
-
-
-$('#boton-usd').click(()=>{
-   
-const urlDolar = "https://api.exchangeratesapi.io/latest?base=USD";
-$('ul').remove();   
-fetch(urlDolar)
-   .then(respuesta => respuesta.json())
-   .then(respuestajson => {
-      Object.keys(respuestajson.rates).forEach(monedas=>{
-         $('#valores').append(`<ul>${monedas} : ${respuestajson.rates[monedas]}</ul>`)})
-
-   $('#moneda').text(`Moneda: ${respuestajson.base}`)
-   $('#dia').text(`Dia: ${respuestajson.date}`)
-})
-.catch(error => console.error("fallo al pedir la informacion",error));
-})
-
-
+function actualizarBase(moneda) {
+  $('#tbody-monedas').empty();
+  fetch(URL + moneda)
+    .then((r) => r.json())
+    .then((rjson) => {
+      Object.keys(rjson.rates).forEach((monedas) => {
+        const $tablaValores = $('#tbody-monedas');
+        $tablaValores.append(`<tr><td>${monedas}</td><td>${rjson.rates[monedas].toFixed(2)}</td></tr>`);
+      });
+      $('#fecha').text(`Fecha: ${rjson.date}`);
+    })
+    .catch((error) => console.error('fallo al pedir la informacion', error));
+}
