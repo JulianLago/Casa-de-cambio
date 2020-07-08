@@ -1,17 +1,30 @@
 {
   "name": "casa-de-cambio",
   "version": "1.0.0",
-  "description": "",
+  "description": "casa de cambio API exchange.io",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "julian lago",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.5.1"
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.38"
-  }
+    "@types/jquery": "^3.3.38",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianLago/casa-de-cambio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JulianLago/casa-de-cambio/issues"
+  },
+  "homepage": "https://github.com/JulianLago/casa-de-cambio#readme"
 }

@@ -1,0 +1,45 @@
+#header{
+    margin: auto;
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+}
+
+h1{
+    margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+#ui{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+#inputs{
+    margin-top: 1rem;
+    flex-direction: row;
+   
+}
+#input-date{
+    margin-top: 3rem;
+    margin-left: 15rem;
+}
+#lista-monedas{
+    
+    margin-top:1rem;
+    width: 25%;
+}
+#tbody-monedas{
+    border: 2px solid black;
+    border-radius: 8px;
+    display:flex ;
+    align-items: center;
+    flex-direction: column;
+}
+.list-group-item{
+    width: 25%;
+  
+    
+}
